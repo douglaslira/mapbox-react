@@ -1,0 +1,136 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/mapbox-gl/src/css/mapbox-gl.css';
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/regular';
+
+.map-container {
+	height: 400px;
+}
+
+.marker-html {
+	position: relative;
+	margin: auto;
+	&_pin {
+		position: absolute;
+		width: 30px;
+		height: 39px;
+		left: -16px;
+		top: -38px;
+		&.normal {
+			background: url('../images/markers/marker.png') no-repeat center transparent;
+			&.active {
+				background: url('../images/markers/marker-active.png') no-repeat center transparent;
+			}
+		}
+		&.number {
+			text-align: center;
+			padding-top: 6px;
+			padding-left: 1px;
+			font-weight: bold;
+			background: url('../images/markers/marker-number.png') no-repeat center transparent;
+			&.active {
+				background: url('../images/markers/marker-number-active.png') no-repeat center transparent !important;
+			}
+		}
+	}
+	.marker-label {
+		position: absolute;
+		white-space: nowrap;
+		min-width: auto;
+		font-weight: bold;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+.mapboxgl-popup-close-button {
+	font-weight: bold !important;
+	font-size: 20px !important;
+}
+
+.mapboxgl-popup-content {
+	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+.mapboxgl-popup-content {
+	.content {
+		padding-top: 15px !important;
+		border-radius: 0px !important;
+	}
+}
+
+.mapboxgl-popup-tip {
+	width: 30px;
+	height: 15px;
+	position: relative;
+	overflow: hidden;
+	border: none;
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		background: $white;
+		transform: rotate(45deg);
+		top: 7px;
+		left: 5px;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+	}
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+	transform: rotate(180deg);
+}
+
+.mapboxgl-popup-anchor-left {
+	.mapboxgl-popup-tip {
+		transform: rotate(-90deg);
+		width: 26px;
+		height: 26px;
+		left: -16px;
+
+		&:after {
+			top: 17px;
+			left: 3px;
+		}
+	}
+
+	.mapboxgl-popup-content {
+		left: -16px;
+	}
+}
+
+.mapboxgl-popup-content {
+	border-radius: 0;
+}
+
+.routes-map-test-active {
+	.marker-html {
+		background-color: #202;
+		position: relative;
+		padding: 0;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		top: 0;
+		left: 0;
+
+		&.active {
+			background: url('../images/markers/marker-active.png') no-repeat center transparent;
+		}
+		&.highlighted {
+			width: 50px;
+			height: 50px;
+			top: -20px;
+			background: url('../images/markers/marker-harbour.png') no-repeat center transparent;
+		}
+
+		&_pin {
+			display: none;
+		}
+	}
+}
